@@ -15,7 +15,7 @@ interface RoomUserDao {
     @Query("SELECT * FROM Users")
     fun allUsers(): Flowable<List<UserEntity>>
 
-    @Query("SELECT * FROM Users WHERE name = :p0 LIMIT 1")
+    @Query("SELECT * FROM Users WHERE name = :name LIMIT 1")
     fun findUser(name: String): Flowable<UserEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -24,7 +24,7 @@ interface RoomUserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(repositories: List<RepositoryEntity>)
 
-    @Query("SELECT * FROM Repositories WHERE userId = :p0")
+    @Query("SELECT * FROM Repositories WHERE userId = :userId")
     fun findRepositoriesForUser(userId: Long): Flowable<List<RepositoryEntity>>
 
 }
