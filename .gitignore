@@ -12,3 +12,4 @@
 .project
 .settings/
 *.classpath
+local.properties
